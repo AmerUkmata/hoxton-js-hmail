@@ -16,7 +16,7 @@ type State = {
 }
 
 
-const state = {
+const state: State = {
   emails: [
     {
       from: 'Nico',
@@ -69,7 +69,7 @@ function createSingleEmail(email: Email){
 
 
 let mainEl = document.querySelector('main')
-mainEl.textContent = ''
+if(mainEl === null) return
 
 let sectionEl1 = document.createElement('section')
 sectionEl1.className= 'single-email'
@@ -107,7 +107,6 @@ mainEl?.append(sectionEl1)
 
 function createEmailList(email: Email){
   let mainEl = document.querySelector('main')
-  mainEl.textContent = ''
 
   let ulEl = document.createElement('ul')
   ulEl.className = 'email-list'
@@ -167,8 +166,8 @@ function createEmailList(email: Email){
 
 
 function render(){
-  createSingleEmail(state.emails[0])
   createEmailList(state.emails[0])
+  createSingleEmail(state.emails[0])
 }
 
 render()
